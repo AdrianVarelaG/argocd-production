@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: devops-toolkit
+  name: devops-paradox
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -9,14 +9,14 @@ spec:
   project: production
   source:
     path: helm
-    repoURL: https://github.com/vfarcic/devops-toolkit.git
+    repoURL: https://github.com/vfarcic/devops-paradox.git
     targetRevision: HEAD
     helm:
       values: |
         image:
-          tag: 2.9.17
+          tag: latest
         ingress:
-          host: devops-toolkit.com
+          host: devopsparadox.com
       version: v3
   destination:
     namespace: production
